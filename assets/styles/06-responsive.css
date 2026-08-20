@@ -1,0 +1,54 @@
+@media (max-width: 1024px) {
+.calc-layout { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+body { margin: 4px 6px; font-size: 12px; }
+h2 { font-size: 14px; }
+.hint { font-size: 10px; }
+.header-fixed { padding: 3px 0; }
+.modebar { gap: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.tab-btn { padding: 5px 8px; font-size: 11px; white-space: nowrap; }
+.btn { padding: 4px 7px; font-size: 11px; }
+.toolbar { gap: 4px; flex-wrap: wrap; }
+.toolbar .btn { font-size: 11px; padding: 4px 7px; }
+.row { flex-direction: column; align-items: flex-start; gap: 3px; }
+.row label { width: 100%; }
+.row-spirit { grid-template-columns: 1fr; gap: 3px; }
+.row-spirit strong { text-align: left; padding-right: 0; }
+.row-spirit input { width: 100%; }
+input[type="number"], select, input[type="text"] {
+height: 30px; box-sizing: border-box;
+}
+fieldset { padding: 5px 6px; margin-bottom: 3px; }
+legend { font-size: 11px; }
+.acc-list { max-height: 160px; font-size: 11px; }
+.calc-layout { grid-template-columns: 1fr !important; }
+.storage-layout { grid-template-columns: 1fr !important; }
+.sheet { min-width: unset; width: 100%; padding: 6px; overflow-x: auto; }
+.sheet .name { font-size: 13px; }
+.grid {
+grid-template-columns: 60px repeat(3, 1fr);
+font-size: 10px;
+min-width: 260px;
+}
+.cell { padding: 2px 3px; font-size: 10px; }
+.cell.h { font-size: 9px; }
+.cell.big { font-size: 13px; }
+.cell.sum { font-size: 10px; }
+.cell.section { grid-column: 1/5 !important; }
+.results-row { flex-direction: column; gap: 6px; }
+div.result { font-size: 11px; padding: 6px; min-height: 100px; overflow-x: auto; }
+#fbUserBar { flex-wrap: wrap; gap: 5px; padding: 4px 7px; }
+#fbUserBar button { font-size: 10px; padding: 2px 7px; }
+.dragon-tabs { overflow-x: auto; flex-wrap: nowrap; }
+.dragon-tab { white-space: nowrap; font-size: 11px; padding: 3px 8px; }
+.spirit-type-cards { grid-template-columns: repeat(2, 1fr) !important; }
+#userSlotModal > div,
+#serverModal > div { padding: 12px; }
+}
+@media (max-width: 480px) {
+h2 { font-size: 13px; }
+.tab-btn { padding: 4px 6px; font-size: 10px; }
+.spirit-type-cards { grid-template-columns: 1fr !important; }
+#storageDragonList .btn { font-size: 10px; padding: 1px 5px; }
+}

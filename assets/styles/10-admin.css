@@ -1,0 +1,4 @@
+#adminPanel{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#0f172a;z-index:99998;overflow-y:auto;font-family:-apple-system,BlinkMacSystemFont,'Malgun Gothic',sans-serif;}
+#adminLoginModal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);z-index:99999;align-items:center;justify-content:center;}
+.adm-input{width:100%;padding:9px 12px;border-radius:7px;border:1px solid #334155;background:#0f172a;color:#f8fafc;font-size:12px;font-family:inherit;outline:none;box-sizing:border-box;}
+.adm-btn{border:none;border-radius:8px;cursor:pointer;font-family:inherit;font-weight:700;}

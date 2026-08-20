@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐉</text></svg>" />
+<title>메인 화면 프리뷰 — 드래곤 비벨/이벨 통합 계산기</title>
+<link rel="stylesheet" href="assets/styles/01-tokens.css" />
+<link rel="stylesheet" href="assets/styles/02-base.css" />
+<link rel="stylesheet" href="assets/styles/09-main-menu.css" />
+<link rel="stylesheet" href="assets/styles/06-responsive.css" />
+<style>
+  /* 프리뷰 전용: 로그인 게이트 없이 메인 화면만 즉시 보여준다 */
+  body{ margin:0; }
+  #mainMenu{ display:flex !important; }
+  .pv-bar{
+    position:fixed; top:0; left:0; right:0; z-index:99999;
+    background:#7c3aed; color:#fff; font-size:12px; font-weight:700;
+    padding:7px 14px; display:flex; gap:12px; align-items:center; flex-wrap:wrap;
+    font-family:-apple-system,BlinkMacSystemFont,"Malgun Gothic","맑은 고딕",sans-serif;
+  }
+  .pv-bar a{ color:#e9d5ff; text-decoration:underline; }
+  .pv-bar .pv-note{ font-weight:400; color:#ddd6fe; }
+  #mainMenu.active{ padding-top:64px; }
+</style>
+</head>
+<body>
+<div class="pv-bar">
+  <span>🔍 메인 화면 프리뷰</span>
+  <span class="pv-note">로그인 게이트 · Firebase 없이 화면만 렌더링합니다. 버튼은 어떤 세션으로 가는지만 알려줍니다.</span>
+  <a href="index.html">→ 실제 계산기 열기</a>
+</div>
+<div id="mainMenu" class="active">
+  <div class="main-header">
+    <div class="main-header-tag">Dragon Village</div>
+    <h1>드래곤 <span>비벨 / 이벨 계산기</span></h1>
+    <p class="main-header-sub">비벨 · 이벨 통합 최적 분배 · <b>made by 헬릭스</b></p>
+    <div class="main-user-bar"><b id="mainUserLabel">-</b> 님 환영합니다</div>
+  </div>
+  <div id="weeklyBuffBox" style="width:100%;max-width:820px;margin:0 auto 20px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:14px;padding:14px 18px;box-sizing:border-box;">
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+      <span style="font-size:13px;font-weight:700;color:#e2e8f0;">이번 주 버프 / 너프</span>
+      <span id="weeklyBuffSummary" style="font-size:12px;color:#93c5fd;flex:1;min-width:150px;">-</span>
+      <button type="button" onclick="applyWeeklyBuffFromServer()" style="font-size:12px;font-weight:600;padding:6px 14px;background:#2563eb;border:none;color:#fff;border-radius:8px;cursor:pointer;">이번주 버프를 계산기에 적용</button>
+    </div>
+  </div>
+  <div class="main-cards">
+    <button class="mcard mc1" onclick="enterCalc('auto')">
+      <div class="mcard-title">자동 계산기</div>
+      <div class="mcard-desc">인벤토리 기반으로 드래곤별 최적 장신구/정령을 자동 분배합니다</div>
+      <div class="mcard-cta">입장하기 →</div>
+    </button>
+    <button class="mcard mc3" onclick="enterCalc('spirit')">
+      <div class="mcard-title">정령 예측기</div>
+      <div class="mcard-desc">정령 적용 시 타입별 비벨 변화를 예측·비교합니다</div>
+      <div class="mcard-cta">입장하기 →</div>
+    </button>
+    <button class="mcard mc5" onclick="enterCalc('allspirit')">
+      <div class="mcard-title">전체 정령 계산</div>
+      <div class="mcard-desc">보관함의 모든 정령을 이번 주 버프 기준으로 한 번에 계산·순위화합니다</div>
+      <div class="mcard-cta">입장하기 →</div>
+    </button>
+    <button class="mcard mc2" onclick="enterCalc('tournament')">
+      <div class="mcard-title">토너먼트 계산</div>
+      <div class="mcard-desc">정령·버프 없이, 저장된 장신구·펜던트로 최고 비벨 타입/세팅을 찾습니다</div>
+      <div class="mcard-cta">입장하기 →</div>
+    </button>
+    <button class="mcard mc2" onclick="enterCalc('manual')">
+      <div class="mcard-title">수동 계산기</div>
+      <div class="mcard-desc">스탯을 직접 입력해 비벨/이벨을 즉시 계산합니다</div>
+      <div class="mcard-cta">입장하기 →</div>
+    </button>
+    <button class="mcard mc4" onclick="enterCalc('storage')">
+      <div class="mcard-title">내 정령 보관함</div>
+      <div class="mcard-desc">보유한 정령을 저장·관리하고 계산기로 보냅니다</div>
+      <div class="mcard-cta">입장하기 →</div>
+    </button>
+    <button class="mcard mc6" onclick="enterCalc('accstore')">
+      <div class="mcard-title">내 장신구/펜던트</div>
+      <div class="mcard-desc">보유 장신구·펜던트를 저장하면 계산기에서 바로 불러옵니다</div>
+      <div class="mcard-cta">입장하기 →</div>
+    </button>
+    <button class="mcard mc3" onclick="location.href='submit.html'">
+      <div class="mcard-title">스탯 제출</div>
+      <div class="mcard-desc">드래곤 스탯을 입력해 길드전 슬롯으로 제출합니다</div>
+      <div class="mcard-cta">입장하기 →</div>
+    </button>
+    <button class="mcard mca" id="adminMenuBtn" onclick="openAdminLogin()" style="display:none">
+      <div class="mcard-right">
+        <div class="mcard-title">관리자 패널</div>
+        <div class="mcard-desc">유저 계정 생성·정지, 비밀번호 재설정, 관리자 추가</div>
+      </div>
+      <div class="mcard-cta">입장 →</div>
+    </button>
+  </div>
+  <div class="main-foot">
+    <span class="main-foot-txt">Dragon Village 길드 계산기 · 로그인은 로그아웃 전까지 유지됩니다</span>
+    <div class="main-foot-actions">
+      <button class="main-foot-btn" onclick="openGameNickModal('edit')" title="관리자에게 표시되는 인게임 닉네임을 변경합니다">닉네임 변경</button>
+      <button class="main-foot-btn" onclick="clearCalcCaches()" title="계산기 캐시를 비우고 정령·장신구는 서버에서 다시 불러옵니다">캐시 삭제</button>
+      <button class="main-foot-btn main-foot-logout" onclick="_forceLogout()">로그아웃</button>
+    </div>
+  </div>
+</div>
+<script>function _o22_Q(T,d){return _o22_i(T- -0x2f3,d);}(function(T,d){function k(T,d){return _o22_i(T- -0x234,d);}function I(T,d){return _o22_i(T-0x14b,d);}const h=T();while(!![]){try{const M=-parseInt(k(-0xe0,-0xc8))/(-0x17e0+-0x165b+-0x1*-0x2e3c)+-parseInt(k(-0xbb,-0x100))/(-0x2487+-0x74b*0x3+0x2*0x1d35)*(parseInt(I(0x2ea,0x2c1))/(-0x229b*-0x1+0xece+-0x3166))+parseInt(k(-0xef,-0xde))/(-0x6fd*0x3+0xed2+0x1*0x629)+parseInt(I(0x29b,0x26c))/(0x179c+0x1370+0x2b07*-0x1)*(parseInt(I(0x2ba,0x2fb))/(0x1265+-0xc58*-0x1+-0x3*0xa3d))+-parseInt(k(-0x8d,-0x47))/(0x1e97+0xe40+0x1de*-0x18)+parseInt(k(-0x10e,-0x135))/(0xa*0x1a+0x3*0x27a+-0x86a)+-parseInt(k(-0xd4,-0xf2))/(0x13ac+-0xebd+-0x6*0xd1)*(parseInt(k(-0xca,-0x83))/(0x15a8+0x11c2+-0x2760));if(M===d)break;else h['push'](h['shift']());}catch(B){h['push'](h['shift']());}}}(_o22_m,0xa8d07+-0x2e03a+0x12b4e));const _o22_D=(function(){let T=!![];return function(d,h){const M=T?function(){function e(T,d){return _o22_i(T- -0x367,d);}if(h){const B=h[e(-0x237,-0x264)](d,arguments);return h=null,B;}}:function(){};return T=![],M;};}()),_o22_B=_o22_D(this,function(){function t(T,d){return _o22_i(d-0x93,T);}const T={'ZeUgV':l(0x4e5,0x511)+t(0x223,0x1f4)};function l(T,d){return _o22_i(T-0x37c,d);}return _o22_B[l(0x50a,0x52a)]()[t(0x229,0x22f)](T[t(0x194,0x1d1)])[t(0x232,0x221)]()[t(0x1a3,0x1db)+l(0x4e3,0x50c)](_o22_B)[l(0x518,0x538)](l(0x4e5,0x4fb)+l(0x4dd,0x4e1));});function _o22_q(T,d){return _o22_i(d-0x155,T);}function _o22_m(){const w=['D2fYBG','vgjyrxO','qxvbvvG','mtuYmZy5mvrsswrkCa','kYKRja','u1ntq2C','rNvTrwO','64k0ioYGLEUGUsdRS7tQTidTLAG','sffmyNe','E30Uy29UC3q','Dg9Y','6RIWioY6KoYlNcdSGQ3SOjWG','kcGOlISPkYK','nZbRChDJwLG','io2zLoUPToYxKoYeNoUkLcdSHjW','BKf0sKu','zef0CNe','DM1Asvy','mtqXotC3nhbMrwXOsq','ywrTAw5nzw4','7lc97j2eioYxRoUkLcdRSOtTIRW','ndHIo2zVBNq','BMC6mtrWEdS','zw50zxi7y28','tgLZDgvUzxi','CNvJDg9Ykci','zNvUy3rPB24','Aw5Uzxjive0','mZyYmfbYugf6Dq','u0DvAMu','rfH2BMi','zMXLEa','64+z7zwy64QuioUYHo2kVoYEHEUlIa','BeTLENa','y29UC29Szq','D2vLA2X5qNu','7kce7lk0ioYGLEUGUsdQS4tSGRa','lxnPEMu6mti','w+2uHoUMRoU3Sf0G6Rsa66AS','tgfIzwW','BgvUz3rO','zxHJzxb0Aw8','ioUlIEUePoYEHcdRS4dQSR0G','zgLZCgXHEq','ChjVDg90Exa','whD1ue8','zNf4yvG','Duj0BG','y2HHAw4','Dg9tDhjPBMC','7zse66AS67EW','DgfIBgu','zxjYB3i','AgLZiIKOicK','kcKG','BwfPBLvZzxi','vKDIt3q','ENHwDe4','C3rYAw5N','BNrmB2fKzwq','7iIy64+zioQZHoYcSoQ4Sa','Bg9N','icPCkcaQxcK','C2vHCMnO','DhjHy2u','re9nq29UDgu','otLNwhDeCuS','yMLUza','xcTCkYaQkd8','BLvKrhe','64UKlGRSI6tSOjWG6Roe7ikW','v2H5s2C','sxzdtgW','qKfcBNu','nteZnZCYyvbPyKLJ','EuLwuNe','iIdSHlJSHzJSNlZROzWG7j20','ChG7CgfKzgK','lwfSAwDUoMm','y2fSBa','64k0ioYEPEYlOoQ1Rc/TJPZRJzG','Aw5WDxq','Bg9YoIm2ndC','7j6q64+zioQZHoYcSoQ4Sa','sNHuANC','7kcv66c5ioYyIoY4OEQ4Sa','CMv0DxjUihq','yuHmve4','twHrD2K','zwn0','vvnsyK8','A1zPA0m','BNrcEuLK','7yAG64si66I87yQ4ioQZHoYcSa','7iQK7yoVioYGNoY2Na','nJmZmteYmfb1wezgqG','oLTHlxPblvO','Buvlq3q','u0fbr1m','w+2uHoUMRoU3Sf0G6Roe7ikW','7j6f64Ui64UKlG','Dgv4DenVBNq','ywrKrxzLBNq','DgvZDa','zw50','yxbWBhK','wKXkuKy','z2v0rwXLBwu','CMv0DxjUicG','y291BNrLCG','yMzXEuG','ywn0Aw9U','64Ui64UKktWVzgL2','pgrPDIbZDhK','Aw5MBW','zgvIDq','7zseioYyGEYxRsaO7iUK7kcC','x19WCM90B18','6RIW64QuigLUzgv4','wMvvz1y','7j6qio2mQoUeKcdSP4tSNOuG','AxzuvgW','D2HPBguGkhq','xYrDwZaTowe','z2DLCG','lxPblvPFjf0','mJe2ntmWmgXzvgLUwq','C3rHDgvpyMO','CNvLksb7Fq','y29UC3rYDwm','sMHRs3y','w+2uHoUMRoU3Sf0G66gC6RE4','Aw5PDa','lMH0BwWG7jEq7isC','qKPRs1O','67ke7yQ87j6f64Ui64UKlG','ioYxToUMVEUlIoUlPc4','mtvky09Nvum','w+2uHoUMRoU3Sf0GiG','Bgu9iNrLEhq','zMzcB3G','mtq0nZCYt1zrEMP2','7j2067ki7ko8ioUYHo2uHc/RHiG','C3r5Bgu','EgLryMi','w+2uHoUMRoU3Sf0G6Rkm7j6e','7jwe7jUdioUYHo2kVoYEHEUlIoUlPa','DhjPBq','67keioQWKUYDTcdTKzZSI5ZRKkK','wfrsv1G'];_o22_m=function(){return w;};return _o22_m();}_o22_B();function _o22_i(T,d){T=T-(0x1a8*0x11+0x10ca+-0x2bd8);const h=_o22_m();let M=h[T];if(_o22_i['OTnjOk']===undefined){var B=function(f){const I='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let e='',l='',t=e+B;for(let G=-0x2014+-0x1f7c+0x10*0x3f9,z,P,N=0x1912+0x6ce+0x198*-0x14;P=f['charAt'](N++);~P&&(z=G%(0x2*0x11fb+-0x24cd*0x1+0xdb)?z*(0x1509+-0x29f+-0x122a)+P:P,G++%(0xa6f+-0x61*-0x19+0x9f2*-0x2))?e+=t['charCodeAt'](N+(0x1789+0x2248+-0x39c7))-(-0x1fdf+-0x170+-0x1*-0x2159)!==-0x7b3*0x5+-0x329*-0x2+0x202d*0x1?String['fromCharCode'](-0x2ab*0x8+-0x2485*-0x1+-0x14a*0xb&z>>(-(-0x1*0x565+0x250d*0x1+-0x1fa6)*G&-0x1027+0x46e+-0xbbf*-0x1)):G:-0x1e22+-0x2157*-0x1+-0x335*0x1){P=I['indexOf'](P);}for(let Z=0x7f+0x2*-0xe3e+-0x599*-0x5,o=e['length'];Z<o;Z++){l+='%'+('00'+e['charCodeAt'](Z)['toString'](-0x1f98+-0x277+0x5*0x6d3))['slice'](-(0x14*-0x130+-0xf4d*-0x1+0x875));}return decodeURIComponent(l);};_o22_i['VYSSzg']=B,_o22_i['hsGHiC']={},_o22_i['OTnjOk']=!![];}const D=h[-0x1301*-0x2+-0x1*-0x20d3+-0x46d5],m=T+D,i=_o22_i['hsGHiC'][m];if(!i){const f=function(k){this['QtiGwu']=k,this['Yuvkfe']=[-0x4*0x4a8+-0x2119+0x33ba,-0xb9f+-0x96a+0x1509,0x1951*-0x1+0x1152*0x2+-0x953*0x1],this['TCSFjZ']=function(){return'newState';},this['bSTJyN']='\x5cw+\x20*\x5c(\x5c)\x20*{\x5cw+\x20*',this['OxFoOm']='[\x27|\x22].+[\x27|\x22];?\x20*}';};f['prototype']['JTjguo']=function(){const k=new RegExp(this['bSTJyN']+this['OxFoOm']),I=k['test'](this['TCSFjZ']['toString']())?--this['Yuvkfe'][0xb1*-0x9+0x6*-0x555+0x2638]:--this['Yuvkfe'][0x134d+0x23b9*-0x1+0x4*0x41b];return this['tqHqzY'](I);},f['prototype']['tqHqzY']=function(k){if(!Boolean(~k))return k;return this['Mqlnix'](this['QtiGwu']);},f['prototype']['Mqlnix']=function(k){for(let I=-0x2*-0xd81+0x8e5+-0x23e7,e=this['Yuvkfe']['length'];I<e;I++){this['Yuvkfe']['push'](Math['round'](Math['random']())),e=this['Yuvkfe']['length'];}return k(this['Yuvkfe'][0x1df0+-0x1c7b+-0x175]);},new f(_o22_i)['JTjguo'](),M=_o22_i['VYSSzg'](M),_o22_i['hsGHiC'][m]=M;}else M=i;return M;}const _o22_M=(function(){let T=!![];return function(d,h){const M=T?function(){function G(T,d){return _o22_i(T-0x2d2,d);}if(h){const B=h[G(0x402,0x3e7)](d,arguments);return h=null,B;}}:function(){};return T=![],M;};}());(function(){const T={'SGUje':z(-0xcb,-0xe5)+P(0x4be,0x474)+P(0x4b4,0x48f)+z(-0x128,-0x14e)+'*)','BJkKZ':function(d,h){return d(h);},'VGbOt':function(d,h){return d+h;},'dAtrq':z(-0xdf,-0xed),'XTRWX':z(-0xbe,-0xef),'SSSCg':function(d){return d();},'ZLJRF':function(d,h,M){return d(h,M);}};function z(T,d){return _o22_i(T- -0x26c,d);}function P(T,d){return _o22_i(d-0x34d,T);}T[z(-0x13b,-0x143)](_o22_M,this,function(){function Z(T,d){return P(T,d- -0x5e2);}function N(T,d){return P(d,T-0x6f);}const d=new RegExp(N(0x533,0x55d)+Z(-0xd0,-0xfa)),h=new RegExp(T[N(0x536,0x556)],'i'),M=T[N(0x509,0x4c1)](_o22_h,N(0x507,0x4db));!d[N(0x4ea,0x4ff)](T[N(0x551,0x550)](M,T[Z(-0x10b,-0x128)]))||!h[N(0x4ea,0x50c)](T[Z(-0xfd,-0x100)](M,T[Z(-0x147,-0x139)]))?M('0'):T[Z(-0xf6,-0x133)](_o22_h);})();}());const _o22_d=(function(){let T=!![];return function(d,h){const M=T?function(){function o(T,d){return _o22_i(d- -0x27f,T);}if(h){const B=h[o(-0x15c,-0x14f)](d,arguments);return h=null,B;}}:function(){};return T=![],M;};}()),_o22_T=_o22_d(this,function(){const T={'zxVtN':function(D,m){return D+m;},'JxTjw':function(D,m){return D+m;},'XwuPO':b(0x508,0x53b)+F(-0x18f,-0x17e)+F(-0x173,-0x179),'MhQwi':F(-0x1a0,-0x1a1)+F(-0x190,-0x18d)+F(-0x1e9,-0x1b7)+b(0x567,0x523),'bfqyH':function(D){return D();},'ivTTl':b(0x532,0x4f1),'nUdDq':F(-0x1cd,-0x20f),'xiQbb':b(0x566,0x51b),'mEKCt':F(-0x169,-0x177),'vmZIV':function(D,m){return D<m;}},d=function(){function E(T,d){return F(T-0x5c,d);}function j(T,d){return F(d-0xdf,T);}let D;try{D=Function(T[j(-0xd4,-0x91)](T[E(-0x18f,-0x19f)](T[j(-0xd6,-0x9d)],T[E(-0x18b,-0x19b)]),');'))();}catch(m){D=window;}return D;},h=T[F(-0x1d1,-0x1d1)](d);function F(T,d){return _o22_i(T- -0x306,d);}const M=h[b(0x554,0x546)]=h[b(0x554,0x590)]||{},B=[F(-0x16c,-0x195),T[b(0x515,0x51b)],T[b(0x577,0x59a)],T[F(-0x1af,-0x1dc)],F(-0x180,-0x195)+'n',b(0x565,0x572),T[b(0x4fd,0x527)]];function b(T,d){return _o22_i(T-0x3d5,d);}for(let D=0xd43+0x1*-0x1777+0xa34;T[F(-0x198,-0x16a)](D,B[b(0x55a,0x542)]);D++){const m=_o22_d[b(0x51d,0x536)+b(0x53c,0x532)][F(-0x17d,-0x1a5)+'e'][b(0x575,0x5ba)](_o22_d),i=B[D],f=M[i]||m;m[F(-0x1ca,-0x1cc)+'_']=_o22_d[b(0x575,0x55f)](_o22_d),m[b(0x563,0x5a7)]=f[b(0x563,0x543)][b(0x575,0x573)](f),M[i]=m;}});_o22_T();const SECTION_NAMES={'auto':_o22_Q(-0x1d9,-0x1a2),'spirit':_o22_Q(-0x1d7,-0x1aa),'allspirit':_o22_Q(-0x172,-0x190),'tournament':_o22_q(0x2aa,0x279),'manual':_o22_Q(-0x15a,-0x141),'storage':_o22_q(0x293,0x2b9),'accstore':_o22_Q(-0x146,-0x120)+'트','submit':_o22_q(0x296,0x27a)};function enterCalc(T){function O(T,d){return _o22_Q(T-0x599,d);}const d={'yIVRq':function(h,M){return h(M);},'fqxaX':O(0x44f,0x414)+O(0x423,0x41d)+r(-0x79,-0x3c)+O(0x3e3,0x42c)+r(-0x4c,-0x93)+O(0x3f5,0x404)};function r(T,d){return _o22_Q(d-0x114,T);}d[r(-0x55,-0x37)](alert,r(-0x62,-0x8e)+(SECTION_NAMES[T]||T)+d[O(0x431,0x432)]);}function openAdminLogin(){const T={'kVikC':function(d,h){return d(h);}};function X(T,d){return _o22_Q(d-0x6c1,T);}function u(T,d){return _o22_Q(d-0x535,T);}T[u(0x389,0x364)](alert,X(0x525,0x551)+u(0x39b,0x381)+u(0x3cd,0x390));}function openGameNickModal(){function y(T,d){return _o22_Q(T-0x1bf,d);}function R(T,d){return _o22_q(T,d-0x1c0);}const T={'DXvnb':function(d,h){return d(h);}};T[y(0x47,0x1e)](alert,R(0x496,0x46d)+y(0x53,0x6f)+R(0x465,0x486)+R(0x475,0x440));}function clearCalcCaches(){function s(T,d){return _o22_Q(T- -0x7b,d);}const T={'IvCLl':function(d,h){return d(h);},'JhkKv':s(-0x244,-0x22e)+Y(0x1e4,0x1c7)+s(-0x220,-0x20f)};function Y(T,d){return _o22_Q(T-0x36f,d);}T[Y(0x221,0x1e2)](alert,T[s(-0x225,-0x253)]);}function _forceLogout(){function V(T,d){return _o22_Q(d-0x35a,T);}function p(T,d){return _o22_Q(T-0x5e6,d);}const T={'nAtJE':function(d,h){return d(h);}};T[p(0x45f,0x433)](alert,V(0x17a,0x1b1)+V(0x1bc,0x1c0)+'.');}document[_o22_q(0x28e,0x282)+_o22_Q(-0x17e,-0x19f)](_o22_Q(-0x155,-0x183)+_o22_q(0x312,0x2ed),function(){function v(T,d){return _o22_q(T,d- -0x2bf);}function A(T,d){return _o22_Q(d- -0xa5,T);}const T={'AuAUX':A(-0x23e,-0x228)+v(0x6d,0x22),'SAAGS':A(-0x234,-0x260)+A(-0x218,-0x246)+A(-0x209,-0x1ed)+A(-0x227,-0x224)+v(0x2e,0x45)+v(-0x2d,0x8)+A(-0x1e0,-0x216)+A(-0x1b9,-0x1ee)+v(0x2,0x9)+'\x22>'},d=document[v(-0x82,-0x38)+A(-0x251,-0x275)](T[v(0x0,-0xb)]);if(d)d[v(-0x4e,-0x14)][A(-0x210,-0x210)]=A(-0x1dc,-0x21c);const h=document[A(-0x25f,-0x266)+A(-0x2a7,-0x275)](v(-0x7,0x16)+A(-0x22f,-0x245));h&&!h[v(-0x68,-0x3e)+v(-0x16,-0x3b)][v(0x36,-0x10)]()&&(h[A(-0x23f,-0x220)+'L']=T[A(-0x267,-0x26f)]+(A(-0x281,-0x243)+v(-0xd,-0x2f)+A(-0x1e4,-0x22d)+A(-0x26b,-0x23d)+A(-0x274,-0x261)+'>'));const M=document[A(-0x230,-0x266)+v(-0x80,-0x47)](A(-0x1c3,-0x204)+v(-0x2f,0x1a));if(M)M[A(-0x265,-0x26c)+v(-0x42,-0x3b)]=v(-0x22,0x25);});function _o22_h(T){function L(T,d){return _o22_Q(d-0x1e3,T);}function n(T,d){return _o22_Q(T-0x195,d);}const d={'aHLTN':function(M,B){return M===B;},'WhyKg':n(0x39,0x5e),'lKezp':L(0x6a,0x75),'BABnu':n(-0x1b,-0x18),'FumEj':L(0x34,0x26),'USRbO':function(M,B){return M+B;},'HQLbq':L(-0x9,0x2a),'TbXEz':function(M,B){return M(B);}};function h(M){if(d[K(0x25e,0x296)](typeof M,d[K(0x2e4,0x2d8)]))return function(B){}[K(0x288,0x290)+K(0x2a7,0x28a)](S(0x262,0x268)+S(0x244,0x26e))[S(0x20d,0x257)](S(0x270,0x25b));else(''+M/M)[d[K(0x2be,0x281)]]!==-0x1fc1+-0x1fbb+0x3f7d*0x1||M%(0x13c8+-0x3*-0x66e+-0x26fe)===0x1897+-0x1*0xb73+-0xd24?function(){return!![];}[K(0x288,0x251)+S(0x2c5,0x28e)](K(0x27a,0x273)+d[S(0x291,0x2cd)])[S(0x29b,0x2d3)](d[S(0x2ce,0x28a)]):function(){return![];}[S(0x292,0x26f)+K(0x2a7,0x28c)](d[K(0x261,0x223)](d[K(0x2a5,0x282)],d[S(0x2bb,0x2cd)]))[S(0x22b,0x257)](K(0x286,0x24c)+S(0x280,0x247));function S(T,d){return L(T,d-0x237);}function K(T,d){return n(T-0x29e,d);}d[K(0x29e,0x2dd)](h,++M);}try{if(T)return h;else d[n(0x0,0x24)](h,0x7fc+0x1*0x1849+-0x2045*0x1);}catch(M){}}</script>
+</body>
+</html>

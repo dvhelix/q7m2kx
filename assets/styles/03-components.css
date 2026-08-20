@@ -1,0 +1,23 @@
+.header-fixed{position:sticky;top:0;background:var(--bg);z-index:100;padding:2px 0;border-bottom:1px solid var(--border);margin-bottom:3px}
+.modebar{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:1px}
+.tab-btn{padding:5px 14px;border:none;background:transparent;cursor:pointer;border-radius:0;font-size:13px;font-weight:500;color:#6b7280;position:relative;transition:color 0.2s}
+.tab-btn:hover{color:var(--accent);background:#f3f4f6}
+.tab-btn.active{color:var(--accent);font-weight:600}
+.tab-btn.active::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--accent);border-radius:1px}
+.btn{padding:5px 12px;border:1px solid var(--border);background:#fff;cursor:pointer;border-radius:var(--radius-sm);font-size:12px;font-weight:500;transition:all 0.2s;box-shadow:var(--shadow)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:var(--shadow-md)}
+.btn.primary:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
+.btn:hover{background:#f9fafb;border-color:#d1d5db}
+.calc-container{display:none;overflow-y:auto;height:100%}
+.calc-container.active{display:block}
+fieldset{background:var(--card-bg);border:none;padding:4px 8px;margin-bottom:3px;border-radius:var(--radius);box-shadow:var(--shadow)}
+legend{font-weight:700;font-size:13px;color:var(--ink);padding:0 3px}
+.row{display:flex;flex-wrap:wrap;gap:4px;align-items:center;margin-bottom:1px}
+label{display:inline-flex;gap:4px;align-items:center;cursor:pointer;font-size:13px}
+input[type="number"],select{height:28px;border:1px solid var(--border);border-radius:var(--radius-sm);text-align:center;background:#fff;font-size:12px;transition:border-color 0.2s,box-shadow 0.2s}
+input[type="number"]:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 2px rgba(59,130,246,0.12)}
+input[type="text"]{height:28px;border:1px solid var(--border);border-radius:var(--radius-sm);background:#fff;padding:0 8px;font-size:12px;transition:border-color 0.2s,box-shadow 0.2s}
+input[type="text"]:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 2px rgba(59,130,246,0.12)}
+input[type="checkbox"],input[type="radio"]{width:14px;height:14px;accent-color:var(--accent)}
+.acc-list{max-height:300px;overflow:auto;border:1px solid var(--border);padding:4px 8px;background:#fff;border-radius:var(--radius-sm);font-size:12px}
+.toolbar{display:flex;gap:6px;margin:3px 0;flex-wrap:wrap}

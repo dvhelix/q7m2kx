@@ -1,0 +1,48 @@
+.row-spirit{
+display:grid;
+grid-template-columns: 120px 70px 70px 70px auto;
+align-items:center;
+column-gap:4px;
+margin-bottom:1px
+}
+.row-spirit strong{text-align:right;padding-right:2px;font-weight:700;font-size:12px}
+.results-wrap{margin-top:4px}
+.results-row{display:inline-flex;gap:8px;align-items:flex-start;flex-wrap:nowrap}
+.sheet{
+background:#fff; color:var(--ink);
+padding:8px; border-radius:var(--radius);
+display:inline-block; min-width:460px;
+box-shadow:var(--shadow-md);
+border:1px solid var(--border);
+}
+.sheet .name{
+font-weight:700; font-size:15px; letter-spacing:.3px; margin-bottom:4px; text-align:center;
+color:var(--accent);
+}
+.grid{
+display:grid;
+grid-template-columns: 120px 100px 100px 100px;
+border:1px solid var(--border);
+background:#fff;
+border-radius:var(--radius-sm);
+overflow:hidden;
+}
+.cell{
+border:1px solid var(--border);
+padding:2px 6px; line-height:1.15;
+font-size:12px; background:#fff;
+color:var(--ink);
+}
+.cell.h{background:#f1f5f9;font-weight:600;color:#475569;font-size:11px}
+.cell.section{background:#e0f2fe;color:#0369a1;font-weight:700;text-align:center;font-size:12px}
+.cell.sum{background:#f8fafc;border-color:var(--border);color:var(--ink);font-size:13px;font-weight:600}
+.cell.big{font-size:18px;font-weight:700;letter-spacing:1px;text-align:center;background:#eff6ff;color:var(--accent)}
+.center{text-align:center}
+.right{text-align:right}
+div.result{
+background:#f8fafc; color:var(--ink);
+padding:6px; border-radius:var(--radius-sm); min-height:160px;
+border:1px solid var(--border);
+font-size:12px;
+line-height:1.2;
+}

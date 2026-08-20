@@ -1,0 +1,32 @@
+.dragon-tabs {
+display: flex;
+gap: 3px;
+flex-wrap: wrap;
+margin-bottom: 6px;
+border-bottom: 2px solid var(--border);
+padding-bottom: 4px;
+}
+.dragon-tab {
+padding: 4px 10px;
+border: 1px solid var(--border);
+background: #fff;
+cursor: pointer;
+border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+font-size: 12px;
+font-weight: 500;
+transition: all 0.2s;
+}
+.dragon-tab:hover {
+background: #f3f4f6;
+}
+.dragon-tab.active {
+background: var(--accent);
+color: #fff;
+border-color: var(--accent);
+}
+.dragon-settings-panel {
+display: none;
+}
+.dragon-settings-panel.active {
+display: block;
+}
