@@ -2,3 +2,11 @@
 #adminLoginModal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);z-index:99999;align-items:center;justify-content:center;}
 .adm-input{width:100%;padding:9px 12px;border-radius:7px;border:1px solid #334155;background:#0f172a;color:#f8fafc;font-size:12px;font-family:inherit;outline:none;box-sizing:border-box;}
 .adm-btn{border:none;border-radius:8px;cursor:pointer;font-family:inherit;font-weight:700;}
+#adminPanel select, #adminPanel input, #adminPanel textarea,
+#adminLoginModal input, #adminLoginModal select{
+background:#191d23; color:#c4cdd9; border:1px solid #333944;
+border-radius:6px; padding:4px 8px; font-size:12px; outline:none;
+}
+#adminPanel select option, #adminLoginModal select option{ background:#191d23; color:#c4cdd9; }
+#adminPanel select:focus, #adminPanel input:focus,
+#adminLoginModal input:focus, #adminLoginModal select:focus{ border-color:#4f8ad0; }
