@@ -86,3 +86,25 @@ body[data-route="submit"] #appWrap .header-fixed{
 background:rgba(25,29,35,0.92);
 border-bottom:1px solid #2a2f38;
 }
+#appWrap input[type="radio"], #appWrap input[type="checkbox"]{
+-webkit-appearance:none; appearance:none;
+width:15px; height:15px; margin:0; flex:none; cursor:pointer;
+background:#191d23; border:1px solid #3a424d; position:relative;
+transition:background .12s, border-color .12s;
+}
+#appWrap input[type="radio"]{ border-radius:50%; }
+#appWrap input[type="checkbox"]{ border-radius:4px; }
+#appWrap input[type="radio"]:hover, #appWrap input[type="checkbox"]:hover{ border-color:#4f8ad0; }
+#appWrap input[type="radio"]:checked, #appWrap input[type="checkbox"]:checked{
+background:#4f8ad0; border-color:#4f8ad0;
+}
+#appWrap input[type="radio"]:checked::after{
+content:''; position:absolute; inset:4px; border-radius:50%; background:#fff;
+}
+#appWrap input[type="checkbox"]:checked::after{
+content:''; position:absolute; left:4px; top:1px; width:4px; height:8px;
+border:solid #fff; border-width:0 2px 2px 0; transform:rotate(45deg);
+}
+#appWrap input[type="radio"]:focus-visible, #appWrap input[type="checkbox"]:focus-visible{
+outline:2px solid rgba(79,138,208,0.5); outline-offset:1px;
+}
