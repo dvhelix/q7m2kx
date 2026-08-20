@@ -41,7 +41,7 @@
       <div class="gate-field"><input id="gateUsernameInput" type="text" placeholder="아이디(닉네임)" onkeydown="if(event.key==='Enter') document.getElementById('gatePwInput').focus()"></div>
       <div class="gate-field"><input id="gatePwInput" type="password" placeholder="비밀번호" onkeydown="if(event.key==='Enter') verifyLogin()"></div>
       <button class="gate-btn-primary" onclick="verifyLogin()">로그인</button>
-      <div id="gateMsgLogin" class="gate-msg" style="color:#ef4444"></div>
+      <div id="gateMsgLogin" class="gate-msg" style="color:#f0776c"></div>
       <div class="gate-sub-link">비밀번호를 변경하려면 <button onclick="openPwResetModal()">비밀번호 재설정</button></div>
     </div>
     <div id="gateRegisterForm" style="display:none">
@@ -49,41 +49,41 @@
       <div class="gate-field"><input id="gateRegPwInput" type="password" placeholder="비밀번호 (4자 이상)"></div>
       <div class="gate-field"><input id="gateRegPwInput2" type="password" placeholder="비밀번호 확인" onkeydown="if(event.key==='Enter') registerUser()"></div>
       <button class="gate-btn-primary" onclick="registerUser()">가입하기</button>
-      <div id="gateMsgRegister" class="gate-msg" style="color:#ef4444"></div>
+      <div id="gateMsgRegister" class="gate-msg" style="color:#f0776c"></div>
     </div>
   </div>
 </div>
 <div id="pwResetModal" style="display:none;position:fixed;inset:0;background:rgba(10,10,20,0.85);z-index:99999;align-items:center;justify-content:center;padding:16px;">
   <div style="background:#1e293b;border-radius:16px;padding:28px 24px;width:320px;max-width:100%;box-shadow:0 20px 40px rgba(0,0,0,0.5);">
-    <div style="font-size:16px;font-weight:800;color:#2d333b;margin-bottom:4px;text-align:center;">비밀번호 재설정</div>
+    <div style="font-size:16px;font-weight:800;color:#cdd9e5;margin-bottom:4px;text-align:center;">비밀번호 재설정</div>
     <div style="font-size:11px;color:#94a3b8;margin-bottom:16px;text-align:center;line-height:1.5;">관리자가 발급한(현재) 비밀번호를 입력한 뒤<br>새 비밀번호로 변경합니다.</div>
-    <div class="gate-field"><input id="pwrUser" type="text" placeholder="아이디(닉네임)" style="width:100%;padding:11px 14px;border-radius:9px;border:1.5px solid #334155;background:#0f172a;color:#2d333b;font-size:13px;outline:none;box-sizing:border-box;margin-bottom:8px;"></div>
-    <div class="gate-field"><input id="pwrCur" type="password" placeholder="현재(관리자 발급) 비밀번호" style="width:100%;padding:11px 14px;border-radius:9px;border:1.5px solid #334155;background:#0f172a;color:#2d333b;font-size:13px;outline:none;box-sizing:border-box;margin-bottom:8px;"></div>
-    <div class="gate-field"><input id="pwrNew" type="password" placeholder="새 비밀번호 (4자 이상)" style="width:100%;padding:11px 14px;border-radius:9px;border:1.5px solid #334155;background:#0f172a;color:#2d333b;font-size:13px;outline:none;box-sizing:border-box;margin-bottom:8px;"></div>
-    <div class="gate-field"><input id="pwrNew2" type="password" placeholder="새 비밀번호 확인" style="width:100%;padding:11px 14px;border-radius:9px;border:1.5px solid #334155;background:#0f172a;color:#2d333b;font-size:13px;outline:none;box-sizing:border-box;margin-bottom:12px;"></div>
+    <div class="gate-field"><input id="pwrUser" type="text" placeholder="아이디(닉네임)" style="width:100%;padding:11px 14px;border-radius:9px;border:1.5px solid #3a424d;background:#0f172a;color:#cdd9e5;font-size:13px;outline:none;box-sizing:border-box;margin-bottom:8px;"></div>
+    <div class="gate-field"><input id="pwrCur" type="password" placeholder="현재(관리자 발급) 비밀번호" style="width:100%;padding:11px 14px;border-radius:9px;border:1.5px solid #3a424d;background:#0f172a;color:#cdd9e5;font-size:13px;outline:none;box-sizing:border-box;margin-bottom:8px;"></div>
+    <div class="gate-field"><input id="pwrNew" type="password" placeholder="새 비밀번호 (4자 이상)" style="width:100%;padding:11px 14px;border-radius:9px;border:1.5px solid #3a424d;background:#0f172a;color:#cdd9e5;font-size:13px;outline:none;box-sizing:border-box;margin-bottom:8px;"></div>
+    <div class="gate-field"><input id="pwrNew2" type="password" placeholder="새 비밀번호 확인" style="width:100%;padding:11px 14px;border-radius:9px;border:1.5px solid #3a424d;background:#0f172a;color:#cdd9e5;font-size:13px;outline:none;box-sizing:border-box;margin-bottom:12px;"></div>
     <button class="gate-btn-primary" onclick="doSelfPwReset()" style="margin-bottom:8px;">변경하기</button>
-    <button onclick="closePwResetModal()" style="width:100%;padding:10px;background:transparent;color:#94a3b8;border:1px solid #334155;border-radius:9px;font-size:13px;cursor:pointer;font-family:inherit;">취소</button>
-    <div id="pwrMsg" style="font-size:12px;margin-top:8px;min-height:16px;text-align:center;color:#ef4444;"></div>
+    <button onclick="closePwResetModal()" style="width:100%;padding:10px;background:transparent;color:#94a3b8;border:1px solid #3a424d;border-radius:9px;font-size:13px;cursor:pointer;font-family:inherit;">취소</button>
+    <div id="pwrMsg" style="font-size:12px;margin-top:8px;min-height:16px;text-align:center;color:#f0776c;"></div>
   </div>
 </div>
 <div id="gameNickModal" style="display:none;position:fixed;inset:0;background:rgba(10,10,20,0.9);z-index:99999;align-items:center;justify-content:center;padding:16px;">
   <div style="background:#1e293b;border-radius:16px;padding:28px 24px;width:320px;max-width:100%;box-shadow:0 20px 40px rgba(0,0,0,0.5);">
-    <div id="gnTitle" style="font-size:16px;font-weight:800;color:#2d333b;margin-bottom:4px;text-align:center;">게임 닉네임 등록</div>
+    <div id="gnTitle" style="font-size:16px;font-weight:800;color:#cdd9e5;margin-bottom:4px;text-align:center;">게임 닉네임 등록</div>
     <div id="gnDesc" style="font-size:11px;color:#94a3b8;margin-bottom:16px;text-align:center;line-height:1.5;"></div>
-    <div class="gate-field"><input id="gnInput" type="text" maxlength="20" placeholder="인게임 닉네임" onkeydown="if(event.key==='Enter')saveGameNick()" style="width:100%;padding:11px 14px;border-radius:9px;border:1.5px solid #334155;background:#0f172a;color:#2d333b;font-size:14px;font-family:inherit;box-sizing:border-box;"></div>
+    <div class="gate-field"><input id="gnInput" type="text" maxlength="20" placeholder="인게임 닉네임" onkeydown="if(event.key==='Enter')saveGameNick()" style="width:100%;padding:11px 14px;border-radius:9px;border:1.5px solid #3a424d;background:#0f172a;color:#cdd9e5;font-size:14px;font-family:inherit;box-sizing:border-box;"></div>
     <button class="gate-btn-primary" onclick="saveGameNick()" style="margin-bottom:8px;">저장하기</button>
-    <button id="gnCancelBtn" onclick="closeGameNickModal()" style="display:none;width:100%;padding:10px;background:transparent;color:#94a3b8;border:1px solid #334155;border-radius:9px;font-size:13px;cursor:pointer;font-family:inherit;">취소</button>
-    <div id="gnMsg" style="font-size:12px;margin-top:8px;min-height:16px;text-align:center;color:#ef4444;"></div>
+    <button id="gnCancelBtn" onclick="closeGameNickModal()" style="display:none;width:100%;padding:10px;background:transparent;color:#94a3b8;border:1px solid #3a424d;border-radius:9px;font-size:13px;cursor:pointer;font-family:inherit;">취소</button>
+    <div id="gnMsg" style="font-size:12px;margin-top:8px;min-height:16px;text-align:center;color:#f0776c;"></div>
   </div>
 </div>
 <div id="adminLoginModal">
   <div style="background:#1e293b;border-radius:14px;padding:32px 28px;width:300px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,0.5)">
-    <div style="font-size:15px;font-weight:700;color:#2d333b;margin-bottom:4px">관리자 패널</div>
-    <div id="adminModalUsername" style="font-size:12px;color:#a78bfa;margin-bottom:16px"></div>
-    <input id="adminPwInput" type="password" placeholder="비밀번호 확인" style="width:100%;padding:10px 14px;border-radius:8px;border:2px solid #334155;background:#0f172a;color:#2d333b;font-size:14px;text-align:center;box-sizing:border-box;outline:none;" onkeydown="if(event.key==='Enter') checkAdminPw()">
-    <button class="adm-btn" onclick="checkAdminPw()" style="width:100%;margin-top:12px;padding:10px;background:linear-gradient(135deg,#b083f0,#b083f0);color:#fff;font-size:14px;">확인</button>
-    <button class="adm-btn" onclick="closeAdminLogin()" style="width:100%;margin-top:6px;padding:9px;background:#0f172a;color:#94a3b8;border:1px solid #334155;font-weight:600;">취소</button>
-    <div id="adminPwMsg" style="margin-top:8px;font-size:11px;color:#ef4444;min-height:16px"></div>
+    <div style="font-size:15px;font-weight:700;color:#cdd9e5;margin-bottom:4px">관리자 패널</div>
+    <div id="adminModalUsername" style="font-size:12px;color:#c8a6ff;margin-bottom:16px"></div>
+    <input id="adminPwInput" type="password" placeholder="비밀번호 확인" style="width:100%;padding:10px 14px;border-radius:8px;border:2px solid #3a424d;background:#0f172a;color:#cdd9e5;font-size:14px;text-align:center;box-sizing:border-box;outline:none;" onkeydown="if(event.key==='Enter') checkAdminPw()">
+    <button class="adm-btn" onclick="checkAdminPw()" style="width:100%;margin-top:12px;padding:10px;background:linear-gradient(135deg,#7c3aed,#6d28d9);color:#e6edf3;font-size:14px;">확인</button>
+    <button class="adm-btn" onclick="closeAdminLogin()" style="width:100%;margin-top:6px;padding:9px;background:#0f172a;color:#94a3b8;border:1px solid #3a424d;font-weight:600;">취소</button>
+    <div id="adminPwMsg" style="margin-top:8px;font-size:11px;color:#f0776c;min-height:16px"></div>
   </div>
 </div>
 <div id="adminPanel">
@@ -91,24 +91,24 @@
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #1e293b;">
       <div>
         <div style="font-size:11px;color:#64748b;letter-spacing:2px;text-transform:uppercase;margin-bottom:2px">Admin</div>
-        <div style="font-size:18px;font-weight:900;color:#2d333b">관리자 패널</div>
+        <div style="font-size:18px;font-weight:900;color:#cdd9e5">관리자 패널</div>
       </div>
-      <button class="adm-btn" onclick="closeAdminPanel()" style="padding:6px 14px;background:#1e293b;color:#94a3b8;border:1px solid #334155;font-weight:600;">나가기</button>
+      <button class="adm-btn" onclick="closeAdminPanel()" style="padding:6px 14px;background:#1e293b;color:#94a3b8;border:1px solid #3a424d;font-weight:600;">나가기</button>
     </div>
     <div style="background:#1e293b;border-radius:12px;padding:16px;margin-bottom:14px;">
-      <div style="font-size:13px;font-weight:700;color:#a78bfa;margin-bottom:6px">이번 주 버프 / 너프 설정</div>
+      <div style="font-size:13px;font-weight:700;color:#c8a6ff;margin-bottom:6px">이번 주 버프 / 너프 설정</div>
       <div style="font-size:11px;color:#94a3b8;margin-bottom:10px;">선택 후 [배포]하면 모든 사용자 메인 화면에 표시되고, 각자 [계산기에 적용]으로 반영합니다.</div>
       <div id="weeklyBuffAdmin"></div>
     </div>
     <div style="background:#1e293b;border-radius:12px;padding:16px;margin-bottom:14px;">
-      <div style="font-size:13px;font-weight:700;color:#a78bfa;margin-bottom:6px">정지 유저 로그아웃</div>
+      <div style="font-size:13px;font-weight:700;color:#c8a6ff;margin-bottom:6px">정지 유저 로그아웃</div>
       <div style="font-size:11px;color:#94a3b8;margin-bottom:10px;line-height:1.5;">유저 목록에서 [정지]한 뒤 이 버튼을 누르면, <b>정지된 유저들만</b> 다음 접속 시 로그아웃됩니다. (다른 유저·전체 세션에는 영향 없음)</div>
-      <button class="adm-btn" onclick="resetBannedUsers()" style="width:100%;padding:10px;background:linear-gradient(135deg,#dc2626,#e5534b);color:#fff;font-size:13px;">정지 유저 초기화 (정지 유저만 로그아웃)</button>
+      <button class="adm-btn" onclick="resetBannedUsers()" style="width:100%;padding:10px;background:linear-gradient(135deg,#dc2626,#b91c1c);color:#e6edf3;font-size:13px;">정지 유저 초기화 (정지 유저만 로그아웃)</button>
       <div id="resetSessionMsg" style="margin-top:8px;font-size:11px;min-height:16px;text-align:center"></div>
     </div>
     <div style="background:#1e293b;border-radius:12px;padding:16px;">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
-        <div style="font-size:13px;font-weight:700;color:#a78bfa">유저 목록</div>
+        <div style="font-size:13px;font-weight:700;color:#c8a6ff">유저 목록</div>
         <button class="adm-btn" onclick="loadUsers()" style="padding:5px 10px;background:#334155;color:#94a3b8;font-weight:600;font-size:11px;">새로고침</button>
       </div>
       <div id="userList" style="font-size:12px;color:#64748b;text-align:center;padding:20px 0">로딩 중...</div>
@@ -124,9 +124,9 @@
   </div>
   <div id="weeklyBuffBox" style="width:100%;max-width:820px;margin:0 auto 20px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:14px;padding:14px 18px;box-sizing:border-box;">
     <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-      <span style="font-size:13px;font-weight:700;color:#373e47;">이번 주 버프 / 너프</span>
-      <span id="weeklyBuffSummary" style="font-size:12px;color:#93c5fd;flex:1;min-width:150px;">-</span>
-      <button type="button" onclick="applyWeeklyBuffFromServer()" style="font-size:12px;font-weight:600;padding:6px 14px;background:#6cb6ff;border:none;color:#fff;border-radius:8px;cursor:pointer;">이번주 버프를 계산기에 적용</button>
+      <span style="font-size:13px;font-weight:700;color:#adbac7;">이번 주 버프 / 너프</span>
+      <span id="weeklyBuffSummary" style="font-size:12px;color:#9cc3ff;flex:1;min-width:150px;">-</span>
+      <button type="button" onclick="applyWeeklyBuffFromServer()" style="font-size:12px;font-weight:600;padding:6px 14px;background:#2563eb;border:none;color:#e6edf3;border-radius:8px;cursor:pointer;">이번주 버프를 계산기에 적용</button>
     </div>
   </div>
   <div class="main-cards">
@@ -221,7 +221,7 @@
             <div class="row">Top N <input id="top_n" type="number" value="5" style="width:80px"></div>
           </div>
           <div id="optimizeDragonSelect" style="display:none;margin-top:6px;padding:6px 8px;background:#272338;border:1px solid #3a3550;border-radius:6px;">
-            <div style="font-size:11px;font-weight:700;color:#b083f0;margin-bottom:3px;">최적 분배 대상 드래곤 (최대 3마리)</div>
+            <div style="font-size:11px;font-weight:700;color:#c8a6ff;margin-bottom:3px;">최적 분배 대상 드래곤 (최대 3마리)</div>
             <div style="font-size:10px;color:#7c6f9c;margin-bottom:5px;">8마리까지 만들어 비교하고, Optimize는 선택한 3마리에만 장신구·펜던트를 분배합니다.</div>
             <div id="optDragonChecks" style="display:flex;flex-wrap:wrap;gap:8px;"></div>
           </div>
@@ -293,7 +293,7 @@
             </label>
           </div>
           <div id="weekBuffPreview" style="margin-top:4px;min-height:16px;display:flex;gap:5px;flex-wrap:wrap;"></div>
-          <div class="small" style="margin-top:4px;color:#6b7280;">보관함 불러오기 시 2버프→1버프→중립→1너프→2너프 순으로 정렬됩니다. 버프/너프 설정 시 각 드래곤 탭의 버프/디버프가 자동 적용됩니다.</div>
+          <div class="small" style="margin-top:4px;color:#768390;">보관함 불러오기 시 2버프→1버프→중립→1너프→2너프 순으로 정렬됩니다. 버프/너프 설정 시 각 드래곤 탭의 버프/디버프가 자동 적용됩니다.</div>
         </fieldset>
         <fieldset>
           <legend>젬 선택</legend>
@@ -330,10 +330,10 @@
             <button class="btn" type="button" onclick="clearAccSelection()">해제</button>
             <button class="btn" type="button" onclick="loadAccSel('auto')" style="background:#263141;border-color:#2f4a6e;color:#6cb6ff;">보관함 불러오기</button>
           </div>
-          <div id="autoAccSelMsg" style="font-size:10px;min-height:12px;color:#6b7280;margin-bottom:2px;"></div>
+          <div id="autoAccSelMsg" style="font-size:10px;min-height:12px;color:#768390;margin-bottom:2px;"></div>
           <div id="accList" class="acc-list"></div>
           <div id="accQtyPanel" style="display:none;margin-top:6px;padding:6px 8px;background:#2b2718;border:1px solid #4a4326;border-radius:6px;">
-            <div style="font-size:11px;font-weight:600;color:#daaa3f;margin-bottom:4px;">📦 장신구 보유 수량 (Optimize 모드)</div>
+            <div style="font-size:11px;font-weight:600;color:#e0a94a;margin-bottom:4px;">📦 장신구 보유 수량 (Optimize 모드)</div>
             <div id="accQtyList" style="font-size:12px;"></div>
           </div>
         </fieldset>
@@ -353,13 +353,13 @@
           <button class="btn primary" type="button" onclick="calcAuto()" style="width:100%;font-size:14px;padding:8px;">계산하기</button>
           <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px;">
             <button class="btn" type="button" onclick="downloadTxt()">Excel 저장</button>
-            <button class="btn" type="button" onclick="clearAllResults()" style="background:#ff9800;color:#fff;border-color:#ff9800;">초기화</button>
-            <button class="btn" type="button" onclick="resetFavorites()" style="background:#ff6b6b;color:#fff;border-color:#ff6b6b;">즐겨찾기 초기화</button>
+            <button class="btn" type="button" onclick="clearAllResults()" style="background:#ff9800;color:#e6edf3;border-color:#ff9800;">초기화</button>
+            <button class="btn" type="button" onclick="resetFavorites()" style="background:#ff6b6b;color:#e6edf3;border-color:#ff6b6b;">즐겨찾기 초기화</button>
           </div>
         </div>
         <fieldset>
           <legend>계산 결과</legend>
-          <div style="font-size:11px;color:#768390;margin-bottom:4px;">결과를 클릭하면 수동계산기로 값이 전송됩니다.</div>
+          <div style="font-size:11px;color:#8b98a8;margin-bottom:4px;">결과를 클릭하면 수동계산기로 값이 전송됩니다.</div>
           <div id="autoResult" class="result" style="white-space:normal;font-family:inherit;"></div>
         </fieldset>
       </div>
@@ -381,13 +381,13 @@
           <div style="display:flex;flex-direction:column;gap:6px;">
             <button class="btn primary" onclick="manualCalcAll()" style="width:100%;">수동 계산</button>
             <button class="btn" onclick="savePngAll()" style="width:100%;">결과를 PNG로 저장</button>
-            <button class="btn" type="button" onclick="resetFavorites()" style="background:#ff6b6b;color:#fff;border-color:#ff6b6b;width:100%;">즐겨찾기 초기화</button>
+            <button class="btn" type="button" onclick="resetFavorites()" style="background:#ff6b6b;color:#e6edf3;border-color:#ff6b6b;width:100%;">즐겨찾기 초기화</button>
           </div>
         </fieldset>
       </div>
     </div>
     <div id="dragonSelectPanel" style="display:none;margin-top:10px;padding:8px 12px;background:#2b2718;border-radius:6px;border:1px solid #ffcc80;">
-      <div style="font-weight:bold;margin-bottom:6px;color:#daaa3f;font-size:13px;">📋 결과에 표시할 드래곤 선택 (최대 3개)</div>
+      <div style="font-weight:bold;margin-bottom:6px;color:#e0a94a;font-size:13px;">📋 결과에 표시할 드래곤 선택 (최대 3개)</div>
       <div id="dragonSelectCheckboxes" style="display:flex;gap:8px;flex-wrap:wrap;"></div>
     </div>
     <div class="results-wrap" style="margin-top:10px;">
@@ -417,7 +417,7 @@
             <button class="btn" type="button" onclick="loadAccSel('sp')" style="background:#263141;border-color:#2f4a6e;color:#6cb6ff;">보관함 불러오기</button>
             <button class="btn" type="button" id="btnToggleSpFavorites" onclick="toggleSpFavoritesFilter()" style="margin-left:auto;">즐겨찾기만</button>
           </div>
-          <div id="spAccSelMsg" style="font-size:11px;min-height:13px;color:#6b7280;margin-bottom:2px;"></div>
+          <div id="spAccSelMsg" style="font-size:11px;min-height:13px;color:#768390;margin-bottom:2px;"></div>
           <div id="sp_acc_list" class="acc-list" style="max-height:200px;"></div>
         </fieldset>
         <fieldset>
@@ -469,7 +469,7 @@
             <label><input type="radio" name="sp_spirit_mode" value="manual" onchange="toggleSpiritPredMode()">직접 입력</label>
           </div>
           <div id="sp_spirit_slot_mode">
-            <div style="font-size:12px;margin-bottom:4px;color:#768390;">정령 슬롯:</div>
+            <div style="font-size:12px;margin-bottom:4px;color:#8b98a8;">정령 슬롯:</div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:4px;">
               <div style="display:flex;gap:4px;">
                 <select id="sp_slot1_stat" style="flex:1;"><option value="none">-</option><option value="hp">HP</option><option value="atk">ATK</option><option value="df">DEF</option></select>
@@ -489,7 +489,7 @@
               </div>
             </div>
             <div style="margin-bottom:4px;">
-              <span style="font-size:12px;color:#768390;">부가옵:</span>
+              <span style="font-size:12px;color:#8b98a8;">부가옵:</span>
               <select id="sp_sub" style="margin-left:4px;">
                 <option value="0">없음</option>
                 <option value="1">체력40</option>
@@ -522,7 +522,7 @@
           <legend>버프 / 디버프</legend>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
             <div>
-              <div style="font-size:12px;color:#768390;margin-bottom:3px;">버프 (HP/ATK/DEF)</div>
+              <div style="font-size:12px;color:#8b98a8;margin-bottom:3px;">버프 (HP/ATK/DEF)</div>
               <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;">
                 <select id="sp_bf_hp"><option value="0" selected>-</option><option value="20">20</option><option value="40">40</option></select>
                 <select id="sp_bf_atk"><option value="0" selected>-</option><option value="20">20</option><option value="40">40</option></select>
@@ -530,7 +530,7 @@
               </div>
             </div>
             <div>
-              <div style="font-size:12px;color:#768390;margin-bottom:3px;">디버프 (HP/ATK/DEF)</div>
+              <div style="font-size:12px;color:#8b98a8;margin-bottom:3px;">디버프 (HP/ATK/DEF)</div>
               <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;">
                 <select id="sp_db_hp"><option value="0" selected>-</option><option value="20">20</option><option value="40">40</option></select>
                 <select id="sp_db_atk"><option value="0" selected>-</option><option value="20">20</option><option value="40">40</option></select>
@@ -544,7 +544,7 @@
       <div class="calc-column">
         <fieldset>
           <legend>예측 결과</legend>
-          <div style="font-size:11px;color:#768390;margin-bottom:4px;">동일 조건에서 정령을 적용했을 때 용 타입별 비벨(B-Value) 비교</div>
+          <div style="font-size:11px;color:#8b98a8;margin-bottom:4px;">동일 조건에서 정령을 적용했을 때 용 타입별 비벨(B-Value) 비교</div>
           <div id="spiritPredResult" style="min-height:200px;">
             <p style="color:#768390;text-align:center;padding:20px 0;">정령 설정 후 계산 버튼을 눌러주세요</p>
           </div>
@@ -556,7 +556,7 @@
     <div id="fbUserBar" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:5px 10px;background:#263141;border:1px solid #2f4a6e;border-radius:8px;margin-bottom:6px;">
       <span id="fbCurrentUserLabel" style="font-size:13px;font-weight:700;color:#6cb6ff;">로그인 안 됨</span>
       <span style="flex:1"></span>
-      <button class="btn primary" type="button" onclick="openSaveToServerModal()" style="font-size:11px;padding:3px 12px;background:#6cb6ff;border-color:#6cb6ff;">서버에 저장 / 불러오기</button>
+      <button class="btn primary" type="button" onclick="openSaveToServerModal()" style="font-size:11px;padding:3px 12px;background:#2563eb;border-color:#2563eb;">서버에 저장 / 불러오기</button>
     </div>
     <div class="storage-layout" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:start;">
       <div>
@@ -568,7 +568,7 @@
           </legend>
           <div id="storageForm" style="display:block;">
             <div style="padding:5px 7px;background:#272338;border-radius:5px;border:1px solid #c4b5fd;margin-bottom:5px;">
-              <div style="font-size:11px;color:#b083f0;font-weight:600;margin-bottom:4px;">정령 슬롯</div>
+              <div style="font-size:11px;color:#c8a6ff;font-weight:600;margin-bottom:4px;">정령 슬롯</div>
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:4px;">
                 <div style="display:flex;gap:3px;align-items:center;">
                   <span style="font-size:10px;color:#64748b;min-width:26px;">슬롯1</span>
@@ -616,7 +616,7 @@
                   <option value="3">방어력10</option>
                 </select>
               </div>
-              <div id="stg_spirit_preview" style="font-size:10px;color:#b083f0;min-height:12px;"></div>
+              <div id="stg_spirit_preview" style="font-size:10px;color:#c8a6ff;min-height:12px;"></div>
             </div>
             <div style="margin-bottom:5px;">
               <label style="font-size:11px;color:#adbac7;">📝 메모
@@ -642,7 +642,7 @@
         <fieldset style="margin-bottom:0;">
           <legend style="display:flex;align-items:center;gap:8px;width:100%;">
             정령 보관함 (<span id="storageDragonCount">0</span>개)
-            <button class="btn" type="button" onclick="resetAllStorage()" style="font-size:10px;padding:1px 7px;background:#2b1e1e;color:#e5534b;border-color:#4a2f2f;margin-left:auto;">전체 초기화</button>
+            <button class="btn" type="button" onclick="resetAllStorage()" style="font-size:10px;padding:1px 7px;background:#2b1e1e;color:#f0776c;border-color:#4a2f2f;margin-left:auto;">전체 초기화</button>
           </legend>
           <div style="display:flex;gap:4px;margin:4px 0;">
             <input type="text" id="storageSearchInput" placeholder="메모/타입/속성 검색..." oninput="renderStorageList()"
@@ -659,7 +659,7 @@
       <div class="calc-column">
         <fieldset>
           <legend>계산 설정</legend>
-          <div style="font-size:11px;color:#768390;margin-bottom:8px;line-height:1.5;">보관함에 저장된 모든 정령을 아래 설정(이번 주 버프 포함)으로 한 번에 계산합니다. 장신구는 전체 중 자동으로 최적값을 적용합니다.</div>
+          <div style="font-size:11px;color:#8b98a8;margin-bottom:8px;line-height:1.5;">보관함에 저장된 모든 정령을 아래 설정(이번 주 버프 포함)으로 한 번에 계산합니다. 장신구는 전체 중 자동으로 최적값을 적용합니다.</div>
           <div class="row" style="margin-bottom:6px;">
             <span style="font-weight:600;min-width:42px;">등급</span>
             <label><input type="radio" name="as_grade" value="7.0">7.0</label>
@@ -745,7 +745,7 @@
               </select>
             </label>
           </div>
-          <div class="small" style="margin-top:2px;color:#6b7280;font-size:10px;">속성 버프/너프는 귀속 정령의 귀속 속성이 일치할 때만 적용됩니다.</div>
+          <div class="small" style="margin-top:2px;color:#768390;font-size:10px;">속성 버프/너프는 귀속 정령의 귀속 속성이 일치할 때만 적용됩니다.</div>
           <div style="font-weight:600;margin:8px 0 4px;">장신구 선택</div>
           <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin-bottom:4px;">
             <button class="btn" type="button" onclick="asFilterAccLevel(20)" style="font-size:12px;padding:4px 12px;">Lv20</button>
@@ -755,8 +755,8 @@
             <button class="btn" type="button" onclick="clearAsAccSelection()" style="font-size:12px;padding:4px 12px;">해제</button>
             <button class="btn" type="button" onclick="loadAccSel('as')" style="font-size:12px;padding:4px 12px;background:#263141;border-color:#2f4a6e;color:#6cb6ff;">보관함 불러오기</button>
           </div>
-          <div id="asAccSelMsg" style="font-size:10px;min-height:12px;color:#6b7280;margin-bottom:2px;"></div>
-          <div class="small" style="color:#6b7280;font-size:10px;margin-bottom:2px;">선택한 장신구 중 정령별 최적값을 적용합니다. 미선택 시 전체 장신구에서 자동 최적. 저장한 목록은 로그인 시 자동 적용됩니다.</div>
+          <div id="asAccSelMsg" style="font-size:10px;min-height:12px;color:#768390;margin-bottom:2px;"></div>
+          <div class="small" style="color:#768390;font-size:10px;margin-bottom:2px;">선택한 장신구 중 정령별 최적값을 적용합니다. 미선택 시 전체 장신구에서 자동 최적. 저장한 목록은 로그인 시 자동 적용됩니다.</div>
           <div id="as_acc_list" class="acc-list" style="max-height:180px;overflow-y:auto;border:1px solid var(--border);border-radius:5px;padding:4px 6px;"></div>
           <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;">
             <button class="btn primary" type="button" onclick="runAllSpiritsPanel(true)" style="flex:1;font-size:13px;padding:8px;">귀속 포함 전체 계산</button>
@@ -776,8 +776,8 @@
   </div>
   <div id="accStoreCalc" class="calc-container">
     <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:6px 10px;background:#2b2718;border:1px solid #fed7aa;border-radius:8px;margin-bottom:8px;">
-      <span id="accStoreUserLabel" style="font-size:13px;font-weight:700;color:#daaa3f;">로그인 안 됨</span>
-      <span style="font-size:11px;color:#daaa3f;">장신구·펜던트는 각 칸에서 따로 저장/불러오기 합니다.</span>
+      <span id="accStoreUserLabel" style="font-size:13px;font-weight:700;color:#e0a94a;">로그인 안 됨</span>
+      <span style="font-size:11px;color:#e0a94a;">장신구·펜던트는 각 칸에서 따로 저장/불러오기 합니다.</span>
     </div>
     <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start;">
       <div style="flex:1 1 380px;min-width:300px;">
@@ -787,7 +787,7 @@
             <button class="btn primary" type="button" onclick="saveAccSel('store')" style="font-size:12px;padding:4px 14px;background:#ea580c;border-color:#ea580c;">서버에 저장</button>
             <button class="btn" type="button" onclick="loadAccSel('store')" style="font-size:12px;padding:4px 14px;">불러오기</button>
           </div>
-          <div style="font-size:11px;color:#6b7280;margin-bottom:6px;line-height:1.5;">보유한 장신구를 체크하고 수량을 입력해 저장하면, 자동 계산기·전체 정령 계산기에서 [불러오기]로 바로 적용됩니다(수량은 자동계산기 Optimize 보유수량에 반영). 저장한 목록은 로그인 시 자동으로 불러와집니다.</div>
+          <div style="font-size:11px;color:#768390;margin-bottom:6px;line-height:1.5;">보유한 장신구를 체크하고 수량을 입력해 저장하면, 자동 계산기·전체 정령 계산기에서 [불러오기]로 바로 적용됩니다(수량은 자동계산기 Optimize 보유수량에 반영). 저장한 목록은 로그인 시 자동으로 불러와집니다.</div>
           <div style="display:flex;gap:4px;margin-bottom:4px;">
             <input type="text" id="store_acc_search" placeholder="장신구 검색..." oninput="renderStoreAccessories()" style="flex:1;height:28px;border:1px solid var(--border);border-radius:5px;padding:0 8px;font-size:12px;">
             <button class="btn" type="button" onclick="document.getElementById('store_acc_search').value='';renderStoreAccessories();" style="font-size:11px;padding:2px 8px;">✕</button>
@@ -799,9 +799,9 @@
             <button class="btn" type="button" onclick="storeFilterAccLevel(18)">Lv18</button>
             <button class="btn" type="button" onclick="storeFilterAccLevel(17)">Lv17</button>
             <button class="btn" type="button" onclick="clearStoreAccSelection()">해제</button>
-            <span id="storeAccCount" style="font-size:11px;color:#6b7280;align-self:center;">0개 선택</span>
+            <span id="storeAccCount" style="font-size:11px;color:#768390;align-self:center;">0개 선택</span>
           </div>
-          <div id="storeAccSelMsg" style="font-size:11px;min-height:13px;color:#6b7280;margin-bottom:2px;"></div>
+          <div id="storeAccSelMsg" style="font-size:11px;min-height:13px;color:#768390;margin-bottom:2px;"></div>
           <div id="store_acc_list" class="acc-list" style="max-height:calc(100vh - 320px);min-height:300px;overflow-y:auto;"></div>
         </fieldset>
       </div>
@@ -812,10 +812,10 @@
             <button class="btn primary" type="button" onclick="addPendant()" style="font-size:12px;">+ 펜던트 추가</button>
             <button class="btn" type="button" onclick="savePendantStore()" style="font-size:12px;background:#263141;border-color:#2f4a6e;color:#6cb6ff;">서버에 저장</button>
             <button class="btn" type="button" onclick="loadPendantStore()" style="font-size:12px;">불러오기</button>
-            <span id="pendStoreCount" style="font-size:11px;color:#6b7280;align-self:center;">0개</span>
+            <span id="pendStoreCount" style="font-size:11px;color:#768390;align-self:center;">0개</span>
           </div>
-          <div style="font-size:11px;color:#6b7280;margin-bottom:6px;line-height:1.5;">보유한 펜던트를 등록해 두면, 계산기 펜던트 입력에서 [내 보관함 펜던트]로 바로 선택할 수 있습니다. 달=2슬롯, 태양=3슬롯, 슬롯당 최대 6%입니다. 저장한 목록은 로그인 시 자동으로 불러와집니다.</div>
-          <div id="pendStoreMsg" style="font-size:11px;min-height:13px;color:#6b7280;margin-bottom:2px;"></div>
+          <div style="font-size:11px;color:#768390;margin-bottom:6px;line-height:1.5;">보유한 펜던트를 등록해 두면, 계산기 펜던트 입력에서 [내 보관함 펜던트]로 바로 선택할 수 있습니다. 달=2슬롯, 태양=3슬롯, 슬롯당 최대 6%입니다. 저장한 목록은 로그인 시 자동으로 불러와집니다.</div>
+          <div id="pendStoreMsg" style="font-size:11px;min-height:13px;color:#768390;margin-bottom:2px;"></div>
           <div id="pend_store_list" style="max-height:calc(100vh - 320px);min-height:300px;overflow-y:auto;"></div>
         </fieldset>
       </div>
@@ -825,7 +825,7 @@
     <div style="display:flex;flex-direction:column;gap:8px;max-width:920px;">
       <fieldset style="margin-bottom:0;">
         <legend>토너먼트 설정</legend>
-        <div style="font-size:11px;color:#6b7280;margin-bottom:8px;line-height:1.5;">토너먼트는 <b>정령·버프가 없습니다.</b> 저장된 <b>장신구·펜던트</b>와 아래 젬 수치로, 타입별 최고 비벨 세팅을 찾아 순위로 보여줍니다. (장신구/펜던트는 [내 장신구/펜던트] 탭에서 저장한 목록을 사용)</div>
+        <div style="font-size:11px;color:#768390;margin-bottom:8px;line-height:1.5;">토너먼트는 <b>정령·버프가 없습니다.</b> 저장된 <b>장신구·펜던트</b>와 아래 젬 수치로, 타입별 최고 비벨 세팅을 찾아 순위로 보여줍니다. (장신구/펜던트는 [내 장신구/펜던트] 탭에서 저장한 목록을 사용)</div>
         <div class="row" style="gap:14px;flex-wrap:wrap;align-items:center;">
           <label style="font-weight:600;">등급
             <select id="tn_grade" style="margin-left:4px;height:28px;">
@@ -834,7 +834,7 @@
               <option value="7.0">7.0</option>
             </select>
           </label>
-          <span id="tn_invNote" style="font-size:11px;color:#6b7280;"></span>
+          <span id="tn_invNote" style="font-size:11px;color:#768390;"></span>
         </div>
       </fieldset>
       <fieldset style="margin-bottom:0;">
@@ -861,7 +861,7 @@
       <button class="btn primary" type="button" onclick="runTournament()" style="align-self:flex-start;font-size:13px;padding:8px 22px;">최고 비벨 계산</button>
       <fieldset style="margin-bottom:0;">
         <legend>계산 결과</legend>
-        <div id="tournamentResult" style="min-height:80px;"><p style="color:#9ca3af;text-align:center;padding:14px 0;font-size:12px;">등급·젬을 정하고 [최고 비벨 계산]을 누르세요.</p></div>
+        <div id="tournamentResult" style="min-height:80px;"><p style="color:#768390;text-align:center;padding:14px 0;font-size:12px;">등급·젬을 정하고 [최고 비벨 계산]을 누르세요.</p></div>
       </fieldset>
     </div>
   </div>
