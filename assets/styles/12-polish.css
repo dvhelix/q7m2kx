@@ -1,36 +1,34 @@
 #appWrap{
---bg:#22272e;
---surface:#2d333b;
---surface-2:#323942;
---field:#1c2128;
---ink:#adbac7;
---ink-bright:#cdd9e5;
---ink-muted:#768390;
---border:#373e47;
---border-strong:#444c56;
---accent:#539bf5;
---accent-soft:#6cb6ff;
+--bg:#1b1f25;
+--surface:#22262d;
+--panel:#20242a;
+--field:#191d23;
+--ink:#a6b0bd;
+--ink-bright:#c4cdd9;
+--ink-muted:#6b7480;
+--border:#2a2f38;
+--border-strong:#333944;
+--accent:#4f8ad0;
+--accent-soft:#7aabe6;
+--card-bg:var(--surface);
+--accent-hover:#5f97d8;
 --radius:12px; --radius-sm:8px;
---shadow:0 1px 2px rgba(0,0,0,0.25);
---shadow-md:0 2px 6px rgba(0,0,0,0.3);
+--shadow:none;
+--shadow-md:0 1px 3px rgba(0,0,0,0.2);
 background:var(--bg);
 color:var(--ink);
 min-height:100vh;
 }
-#appWrap{
---card-bg:var(--surface);
---accent-hover:#6cb6ff;
-}
 #appWrap, #appWrap .calc-container{ color:var(--ink); }
 #appWrap .header-fixed{
 padding:12px 22px;
-background:rgba(34,39,46,0.92);
+background:rgba(27,31,37,0.92);
 -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
 border-bottom:1px solid var(--border);
-box-shadow:0 1px 3px rgba(0,0,0,0.3);
+box-shadow:none;
 margin-bottom:16px;
 }
-#appWrap .header-fixed h2{ font-size:18px; letter-spacing:-0.02em; font-weight:800; color:var(--ink-bright); }
+#appWrap .header-fixed h2{ font-size:18px; letter-spacing:-0.02em; font-weight:700; color:var(--ink-bright); }
 #appWrap .header-fixed .hint{ font-size:11px; color:var(--ink-muted); margin-top:3px; }
 .to-main-btn{
 padding:6px 13px; border:1px solid var(--border-strong); background:var(--surface); border-radius:8px;
@@ -46,9 +44,9 @@ border:1px solid var(--border);
 border-radius:12px;
 padding:14px 16px;
 margin-bottom:12px;
-box-shadow:var(--shadow);
+box-shadow:none;
 }
-#appWrap legend{ font-size:13px; font-weight:800; color:var(--ink-bright); padding:0 4px; margin-bottom:2px; }
+#appWrap legend{ font-size:13px; font-weight:700; color:var(--ink-bright); padding:0 4px; margin-bottom:2px; }
 #appWrap .row{ margin-bottom:6px; gap:6px; }
 #appWrap h2, #appWrap h3, #appWrap strong, #appWrap b{ color:var(--ink-bright); }
 #appWrap .hint, #appWrap .small{ color:var(--ink-muted); }
@@ -61,30 +59,30 @@ height:32px; border-radius:8px;
 background:var(--field); color:var(--ink-bright); border:1px solid var(--border-strong);
 }
 #appWrap .calc-container:not(.submit-scope) textarea{ height:auto; }
-#appWrap select option{ background:#1c2128; color:var(--ink-bright); }
+#appWrap select option{ background:#191d23; color:var(--ink-bright); }
 #appWrap .btn{
-background:var(--surface-2); color:var(--ink); border:1px solid var(--border-strong); border-radius:8px;
+background:var(--surface); color:var(--ink); border:1px solid var(--border-strong); border-radius:8px;
 }
-#appWrap .btn:hover{ background:#3a424d; border-color:#586372; }
+#appWrap .btn:hover{ background:#2a3039; border-color:#3d444f; }
 #appWrap .btn.primary{ background:var(--accent); border-color:var(--accent); color:#fff; }
-#appWrap .btn.primary:hover{ background:var(--accent-soft); border-color:var(--accent-soft); }
+#appWrap .btn.primary:hover{ background:var(--accent-hover); border-color:var(--accent-hover); }
 #appWrap .tab-btn{ color:var(--ink-muted); }
-#appWrap .tab-btn:hover{ background:var(--surface-2); color:var(--accent-soft); }
-#appWrap .acc-list{ background:#1c2128; border:1px solid var(--border); border-radius:10px; }
-#appWrap div.result{ background:#1c2128; border:1px solid var(--border); color:var(--ink); border-radius:10px; }
-#appWrap .sheet{ background:var(--surface); border:1px solid var(--border-strong); color:var(--ink); }
+#appWrap .tab-btn:hover{ background:var(--panel); color:var(--accent-soft); }
+#appWrap .acc-list{ background:var(--panel); border:1px solid var(--border); border-radius:10px; }
+#appWrap div.result{ background:var(--panel); border:1px solid var(--border); color:var(--ink); border-radius:10px; }
+#appWrap .sheet{ background:var(--surface); border:1px solid var(--border); color:var(--ink); box-shadow:none; }
 #appWrap .sheet .name{ color:var(--accent-soft); }
 #appWrap .grid{ background:var(--surface); border:1px solid var(--border); }
 #appWrap .cell{ background:var(--surface); border:1px solid var(--border); color:var(--ink); }
-#appWrap .cell.h{ background:var(--surface-2); color:var(--ink-muted); }
-#appWrap .cell.section{ background:#263141; color:var(--accent-soft); }
-#appWrap .cell.sum{ background:#2b323b; color:var(--ink-bright); }
-#appWrap .cell.big{ background:#263141; color:var(--accent-soft); }
-#appWrap .dragon-tab{ background:var(--surface-2); color:var(--ink); border:1px solid var(--border-strong); border-radius:8px 8px 0 0; }
+#appWrap .cell.h{ background:var(--panel); color:var(--ink-muted); }
+#appWrap .cell.section{ background:#242a33; color:var(--accent-soft); }
+#appWrap .cell.sum{ background:#232830; color:var(--ink-bright); }
+#appWrap .cell.big{ background:#232a33; color:var(--accent-soft); }
+#appWrap .dragon-tab{ background:var(--panel); color:var(--ink); border:1px solid var(--border-strong); border-radius:8px 8px 0 0; }
 #appWrap .dragon-tab.active{ background:var(--accent); color:#fff; border-color:var(--accent); }
 #appWrap .dragon-tabs{ border-bottom-color:var(--border-strong); }
-body[data-route="submit"], body[data-route="submit"] #appWrap{ background:#1c2128; }
+body[data-route="submit"], body[data-route="submit"] #appWrap{ background:#191d23; }
 body[data-route="submit"] #appWrap .header-fixed{
-background:rgba(28,33,40,0.92);
-border-bottom:1px solid #2e3440;
+background:rgba(25,29,35,0.92);
+border-bottom:1px solid #2a2f38;
 }
