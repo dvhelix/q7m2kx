@@ -15,7 +15,7 @@ font-size:13px; font-weight:600; color:#3b4453; cursor:pointer; margin-right:12p
 transition:border-color .15s,color .15s;
 }
 .to-main-btn:hover{ border-color:var(--accent); color:var(--accent); }
-#appWrap .calc-container.active{ padding:0 22px 44px; }
+#appWrap .calc-container.active:not(.submit-scope){ padding:0 22px 44px; }
 #appWrap fieldset{
 background:#fff;
 border:1px solid #e6e9ef;
@@ -26,7 +26,9 @@ box-shadow:0 1px 3px rgba(16,24,40,0.04);
 }
 #appWrap legend{ font-size:13px; font-weight:800; color:#111827; padding:0 4px; margin-bottom:2px; }
 #appWrap .row{ margin-bottom:6px; gap:6px; }
-#appWrap input[type="number"], #appWrap input[type="text"], #appWrap select{
+#appWrap .calc-container:not(.submit-scope) input[type="number"],
+#appWrap .calc-container:not(.submit-scope) input[type="text"],
+#appWrap .calc-container:not(.submit-scope) select{
 height:32px; border-radius:8px; border-color:#dfe3ea;
 }
 #appWrap .btn{ border-radius:8px; }
@@ -34,3 +36,15 @@ height:32px; border-radius:8px; border-color:#dfe3ea;
 #appWrap .acc-list{ border-color:#e6e9ef; border-radius:10px; }
 #appWrap div.result{ background:#fff; border-color:#e6e9ef; border-radius:10px; }
 #appWrap .dragon-tab{ border-radius:8px 8px 0 0; }
+body[data-route="submit"], body[data-route="submit"] #appWrap{ background:#0f1117; }
+body[data-route="submit"] #appWrap .header-fixed{
+background:rgba(20,22,32,0.92);
+border-bottom:1px solid #2e3350;
+box-shadow:0 1px 3px rgba(0,0,0,0.3);
+}
+body[data-route="submit"] #appWrap .header-fixed h2{ color:#e8ecf5; }
+body[data-route="submit"] #appWrap .header-fixed .hint{ color:#7b85a8; }
+body[data-route="submit"] .to-main-btn{
+background:#1a1d27; border-color:#2e3350; color:#e8ecf5;
+}
+body[data-route="submit"] .to-main-btn:hover{ border-color:#5b8def; color:#8ab0ff; }
